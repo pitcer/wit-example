@@ -1,0 +1,16 @@
+package pitcer:example
+
+world example {
+    import runtime: interface {
+        record time {
+            seconds: u64,
+            milliseconds: u32
+        }
+
+        get-current-time: func() -> time
+
+        print: func(message: string)
+    }
+
+    export run: func() -> result
+}
