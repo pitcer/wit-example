@@ -5,7 +5,18 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.75"
+async-trait = "0.1.73"
+
+[dependencies.pollster]
+version = "0.3.0"
+features = ["macro"]
 
 [dependencies.wasmtime]
-version = "12.0.1"
-features = ["component-model"]
+git = "https://github.com/bytecodealliance/wasmtime"
+# It should be the same as here https://github.com/bytecodealliance/componentize-py/blob/main/Cargo.toml#L28 to make python script work. It also depends on the installed version of componentize-py.
+rev = "2ad057d735edc43f8ba89428d483f2b2430c1068"
+features = ["async", "component-model"]
+
+[dependencies.wasmtime-wasi]
+git = "https://github.com/bytecodealliance/wasmtime"
+rev = "2ad057d735edc43f8ba89428d483f2b2430c1068"
